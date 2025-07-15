@@ -1,0 +1,135 @@
+@use "sass:math";
+@use "sass:meta";
+
+@mixin hide-scrollbar {
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+  // Webkit
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin custom-scrollbar {
+  scrollbar-width: thin; // Firefox
+  -ms-overflow-style: auto; // IE and Edge
+  &::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: #f0f1f4;
+    border: none;
+    box-shadow: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #d6d6d6;
+  }
+  scrollbar-color: rgba(23, 23, 25, 0.20) transparent;
+}
+
+@mixin disable-text-drag {
+  user-select: none;
+  -webkit-user-select: none; // Chrome, Safari, Opera
+  -moz-user-select: none; // Firefox
+  -ms-user-select: none; // IE 10+
+}
+
+// 텍스트 말줄임표
+@mixin ellipsis($width: null, $lines: 1) {
+  @if $width {
+    width: $width;
+  }
+  @if $lines == 1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  // 모든 브라우저 지원을 위한 대체 속성
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+@mixin remove-ellipsis {
+  // 단일 줄 ellipsis 해제
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
+
+  // 여러 줄 ellipsis 해제
+  display: block;
+  -webkit-line-clamp: none;
+  -webkit-box-orient: unset;
+
+  // 추가 스타일 초기화
+  max-width: none;
+  word-wrap: normal;
+  width: auto;
+}
+
+// 기본 root font-size
+$base-font-size: 16px !default;
+
+@function px-to-rem($px-value, $base-size: $base-font-size) {
+  $px-only: if(
+    meta.type-of($px-value) == number and math.unit($px-value) == px,
+    math.div($px-value, 1px),
+    $px-value
+  );
+
+  $base-only: if(
+    meta.type-of($base-size) == number and math.unit($base-size) == px,
+    math.div($base-size, 1px),
+    $base-size
+  );
+
+  @return math.div($px-only, $base-only) * 1rem;
+}
+
+@mixin before($borderRadius, $width, $height) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: $borderRadius;
+    width: $width;
+    height: $height;;
+    transition: background-color 0.2s;
+}
+@mixin state-overlay-with-class($borderRadius: 0.5rem, $color: bk, $width: inherit, $height: inherit) {
+  &.state::before {
+    @include before($borderRadius, $width, $height);
+  }
+
+  &.state {
+    &:hover::before {
+      background-color: var(--color-semantic-state-#{$color}-02);
+    }
+
+    &:active::before {
+      background-color: var(--color-semantic-state-#{$color}-01);
+    }
+  }
+}
+
+@mixin state-overlay($borderRadius: 0.5rem, $color: bk, $width: inherit, $height: inherit) {
+  &::before {
+    @include before($borderRadius, $width, $height);
+  }
+
+  &:hover::before {
+    background-color: var(--color-semantic-state-#{$color}-02);
+  }
+
+  &:active::before {
+    background-color: var(--color-semantic-state-#{$color}-01);
+  }
+}

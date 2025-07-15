@@ -1,0 +1,285 @@
+import StyleDictionary from 'style-dictionary';
+import fs from 'fs';
+
+/** 카멜케이스(camelCase) → 케밥케이스(kebab-case)로 변환 */
+function kebab(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+StyleDictionary.registerFormat({
+  name: 'scss/custom-variables',
+  format: function ({ dictionary, file }) {
+    const disabledCSS = file?.disabledCSS || false;
+    const prefix = file?.prefix || '';
+    const variables = dictionary.allTokens
+      .map(token => {
+        // 사장 상위에 있는 속성 이름
+        const category = kebab(token.path[0]);
+        // 이후 값이 존재할 때까지의 속성이름이 배열값으로 넘어옴 ex.[ 'letterSpacing', 'wide' ]
+        const pathWithoutFirst = token.path.slice(1);
+        const name = pathWithoutFirst
+          .map(part => kebab(part))
+          .join('-');
+        const variableName = `${prefix}${kebab(category)}-${name}`;
+        if (disabledCSS) {
+          return `$${variableName}: ${isNaN(token.value) ? token.value : `${token.value}px`};`;  
+        }
+        return `$${variableName}: var(--${variableName}, ${isNaN(token.value) ? token.value : `${token.value}px`});`;
+      })
+      .join('\n');
+    return variables;
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: 'scss/custom-text-style',
+  format({ dictionary }) {
+    const getfontWeight = `\n@function get-font-weight($weight) {
+  @if $weight == bold {
+    @return var(--font-weights-bold, 700);
+  } @else if $weight == medium {
+    @return var(--font-weights-medium, 500);
+  } @else if $weight == regular {
+    @return var(--font-weights-regular, 400);
+  } @else {
+    @warn "Unknown font weight #{$weight}. Falling back to 400.";
+    @return 400;
+  }
+}\n\n`;
+    const textTokens = dictionary.allTokens.filter(token => token.path[0] === 'textStyle');
+    const mixinMap = new Map();
+    textTokens.forEach(token => {
+      const [, , categoryWithSize, weightType] = token.path;
+      const category = categoryWithSize.split(' | ')[0].toLowerCase(); // 'Display1'
+      if (!mixinMap.has(category)) {
+        mixinMap.set(category, {
+          declarations: [],
+          weights: new Set()
+        });
+      }
+      // weight 타입 수집
+      mixinMap.get(category).weights.add(weightType.toLowerCase());
+      // Bold weight의 속성들을 기준으로 mixin 생성 (하나만 처리)
+      if (weightType === 'Medium') {
+        Object.entries(token.original.value).forEach(([prop, value]) => {      
+          const findTypography = dictionary.allTokens.find(findToken => findToken.key === value);
+          const key = kebab(findTypography.path.join('-'));
+          let ref = `var(--${key}, ${isNaN(findTypography.value) ? findTypography.value : `${findTypography.value}px`})`;
+          if (prop === 'fontWeight') {
+            ref = `#{get-font-weight($weight)}`;
+          }
+          mixinMap.get(category).declarations.push({ prop, ref });
+        });
+      }
+    });
+    return `@use 'sass:string';\n\n` + getfontWeight + Array.from(mixinMap.entries())
+      .map(([category, { declarations, weights }]) => {
+        const defaultWeight = weights.has('medium') ? 'medium' : Array.from(weights)[0];
+        const mixinName = `text-${category}`;
+        const params = `$weight: ${defaultWeight}`;
+        const body = declarations
+          .map(({ prop, ref }) => {
+            return `  ${kebab(prop)}: ${ref};`;
+          })
+          .join('\n');
+        return `@mixin ${mixinName}(${params}) {\n${body}\n}`;
+      })
+      .join('\n\n');
+  }
+});
+StyleDictionary.registerFormat({
+  name: 'scss/custom-index',
+  format({ file, platform }) {
+    const scssFiles = fs.readdirSync(`${platform.buildPath}${file.buildPath}`)
+      .filter(f => f.endsWith('.scss') && f !== '_index.scss')
+      .map(f => f.replace(/^_/, '').replace('.scss', ''));
+
+    return scssFiles
+      .map(name => `@forward '${name}';`)
+      .join('\n');
+  }
+});
+
+function hex8ToRgba(hex) {
+  if (!/^#([A-Fa-f0-9]{8})$/.test(hex)) return hex; // fallback
+  const bigint = parseInt(hex.slice(1), 16);
+  const r = (bigint >> 24) & 255;
+  const g = (bigint >> 16) & 255;
+  const b = (bigint >> 8) & 255;
+  const a = ((bigint & 255) / 255).toFixed(2);
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+StyleDictionary.registerFormat({
+  name: 'scss/custom-shadow',
+  format({ dictionary }) {
+    return dictionary.allTokens
+      .map(prop => {
+        const shadowStr = prop.value
+          .map(shadow => {
+            const color = hex8ToRgba(shadow.color);
+            return `${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${color}`;
+          })
+          .join(', ');
+        return `$${prop.name}: ${shadowStr};`;
+      })
+      .join('\n');
+  }
+});
+
+StyleDictionary.registerFormat({
+  name: 'scss/custom-breakpoints',
+  format({ dictionary }) {
+    const variables = dictionary.allTokens
+      .map(token => {
+        return `$${token.name}`;
+      });
+
+    const s = variables[0];
+    const m = variables[1];
+    const d = variables[2];
+
+    return `// Do not edit directly, this file was generated by Style Dictionary
+@use '../variables/index' as *;
+
+@mixin mobile {
+  @media screen and (min-width: #{${s}}) and (max-width: #{(${m} - 1px)}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{${m}}) and (max-width: #{(${d} - 1px)}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{${d}}) {
+    @content;
+  }
+}
+`;
+  }
+});
+
+StyleDictionary.registerFormat({
+  name: 'css/custom-theme',
+  format: function ({ dictionary }) {
+    let importFont = '';
+    const header = `\n:root {\n`;
+    const variables = dictionary.allTokens
+      .map(token => {
+        const colorValueName = kebab(token.original.value).replace(/[{}]/g, '').replace(/[.]/g,'-');
+        if(token.path[0] === 'fontFamilies') {
+          importFont = `@import url('./fonts/${token.value || 'pretendard'}/index.css');\n`
+        }
+        const prefix = token.path[0] === 'Semantic' ? '--color-' : '--';
+        const category = kebab(token.path[0]);
+        const pathWithoutFirst = token.path.slice(1);
+        const name = pathWithoutFirst
+          .map(part => kebab(part))
+          .join('-');
+        const variableName = `${prefix}${category}-${name}`;
+        return `  ${variableName}: var(${prefix}${colorValueName}, ${token.value});`;
+      })
+      .join('\n');
+    const footer = `\n}`;
+    return importFont + header + variables + footer;
+  },
+});
+StyleDictionary.registerFormat({
+  name: 'css/custom-variables',
+  format: function ({ dictionary }) {
+    let importFont = '';
+    const header = `\n:root {\n`;
+    const variables = dictionary.allTokens
+      .map(token => {
+        const prefix = token.path[0] === 'Atomic' ? '--color-' : '--';
+        const category = kebab(token.path[0]);
+        const pathWithoutFirst = token.path.slice(1);
+        const unit = ['fontSize', 'lineHeights'].some((unitValue) => unitValue.includes(token.path[0])) ? 'px' : '';
+        const name = pathWithoutFirst
+          .map(part => kebab(part))
+          .join('-');
+        const variableName = `${prefix}${category}-${name}`;
+        return `  ${variableName}: ${token.value}${unit};`;
+      })
+      .join('\n');
+    const footer = `\n}`;
+    return importFont + header + variables + footer;
+  },
+});
+
+export default {
+  source: ['./src/tokens/**/*.json'],
+  platforms: {
+    scss: {
+      transformGroup: 'scss',
+      buildPath: './src/scss/',
+      files: [
+        {
+          destination: 'variables/_breakpoint.scss',
+          format: 'scss/custom-variables',
+          disabledCSS: true,
+          filter: token => token.path[0] === 'breakpoint',
+        },
+        {
+          destination: 'variables/_shadow.scss',
+          filter: token => token.path[0] === 'Shadow',
+          format: 'scss/custom-shadow',
+        },
+        {
+          buildPath: "variables",
+          destination: 'variables/_index.scss',
+          format: 'scss/custom-index',
+        },
+        {
+          destination: 'mixin/_text-style.scss',
+          filter: token => 
+              token.path[0] === 'textStyle'
+            | token.path[0] === 'lineHeights' 
+            | token.path[0] === 'fontWeights' 
+            | token.path[0] === 'fontSize' 
+            | token.path[0] === 'letterSpacing'
+            | token.path[0] === 'fontFamilies',
+          format: 'scss/custom-text-style'
+        },
+        {
+          destination: 'mixin/_breakpoint.scss',
+          filter: token => token.path[0] === 'breakpoint',
+          format: 'scss/custom-breakpoints'
+        },
+        {
+          buildPath: "mixin",
+          destination: 'mixin/_index.scss',
+          format: 'scss/custom-index',
+        }
+      ]
+    },
+    css: {
+      transformGroup: 'css',
+      buildPath: './src/css/',
+      files: [
+        {
+          destination: 'variables.css',
+          format: 'css/custom-variables',
+          filter: token => 
+            token.path[0] === 'Atomic'
+          | token.path[0] === 'lineHeights' 
+          | token.path[0] === 'fontWeights' 
+          | token.path[0] === 'fontSize' 
+          | token.path[0] === 'letterSpacing'
+          | token.path[0] === 'Opacity',
+        },
+        {
+          destination: 'themes/default.css',
+          format: 'css/custom-theme',
+          filter: token => token.path[0] === 'Semantic' | token.path[0] === 'fontFamilies',
+          options: {
+            outputReferences: true
+          }
+        }
+      ]
+    }
+  }
+};

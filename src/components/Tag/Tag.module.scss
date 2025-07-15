@@ -1,0 +1,42 @@
+@use 'scss/mixin' as *;
+
+.tag {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 4px;
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    line-height: 1;
+    padding: 2px;
+  }
+  &.solid {
+    color: var(--color-semantic-foreground-bk-02, #292a2d);
+    background-color: var(--color-semantic-background-brand-03, #fcebe6);
+  }
+  &.outline {
+    color: var(--color-semantic-foreground-bk-03, #989ba2);
+    border: 1px solid var(--color-semantic-border-solid-bk-03, #dbdcdf);
+  }
+  &.s {
+    @include text-caption2;
+    min-width: 18px;
+    height: 18px;
+    &.padding-vertical {
+      padding: 2px 2px;
+    }
+  }
+  &.m {
+    @include text-body3;
+    min-width: 24px;
+    height: 24px;
+    &.padding-vertical {
+      padding: 2px 6px;
+    }
+  }
+}

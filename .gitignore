@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm/
+.pnp.*
+*.log
+yarn.lock
+package-lock.json
+
+# build output
+dist/
+build/
+storybook-static/
+
+# system
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sw?
+
+# Style Dictionary token artifacts
+tokens/dist/
+packages/*/dist/
+
+# Storybook cache
+.storybook-out/
+
+*storybook.log

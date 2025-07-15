@@ -1,0 +1,22 @@
+.sample-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  background: var(--color-semantic-background-wt-02, #F7F7F8);
+
+  i {
+    font-size: 60px !important;
+    color: var(--color-semantic-foreground-bk-03, #989BA2);
+  }
+
+  >img {
+    border-radius: 999px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

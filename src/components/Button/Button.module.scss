@@ -1,0 +1,171 @@
+@use 'scss/mixin' as *;
+
+.button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  white-space: nowrap;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: background-color 0.2s;
+    border-radius: 0.5rem;
+  }
+  &.disabled {
+    cursor: default;
+  }
+}
+.state {
+  &:hover::before {
+    background-color: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+  }
+  &:active::before {
+    background-color: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.1));
+  }
+}
+.s {
+  padding: 0.44rem 0.5rem;
+  @include text-body3;
+  &.icon-only {
+    padding: px-to-rem(6px);
+  }
+}
+.m {
+  padding: 0.5rem 1rem;
+  @include text-body1;
+  &.icon-only {
+    padding: px-to-rem(8px);
+  }
+}
+.l {
+  padding: 0.75rem 1.25rem;
+  @include text-body1;
+  &.icon-only {
+    padding: px-to-rem(10px);
+  }
+}
+.label {
+  flex: 1;
+}
+.hidden-label {
+  display: none;
+}
+
+// 컴포넌트 별
+.solid-button {
+  &.primary {
+    background-color: var(--color-semantic-background-brand-01, #ff7039);
+    color: #fff;
+  }
+  &.secondary {
+    background-color: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+    color: var(--color-semantic-foreground-bk-01, #0f0f10);
+  }
+  &.disabled {
+    color: rgba(23, 23, 25, 0.2);
+    background-color: rgba(23, 23, 25, 0.05);
+  }
+}
+.outline-button {
+  background-color: var(--color-semantic-state-brand-none, rgba(255, 112, 57, 0));
+  border: 1px solid var(--color-semantic-border-transperency-bk-02, rgba(23, 23, 25, 0.15));
+  &.primary {
+    color: var(--color-semantic-foreground-brand-01, #ff7039);
+    &.state:hover::before {
+      background-color: var(--color-semantic-state-brand-02, rgba(255, 112, 57, 0.05));
+    }
+    &.state:active::before {
+      background-color: var(--color-semantic-state-brand-01, rgba(255, 112, 57, 0.1));
+    }
+  }
+  &.disabled {
+    border-color: var(--color-semantic-border-transperency-bk-03, rgba(23, 23, 25, 0.05));
+    color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.2));
+  }
+}
+.text-button {
+  position: relative;
+  width: fit-content;
+  padding: 0;
+  border-radius: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  &.primary {
+    color: var(--color-semantic-foreground-blue-01, #06f);
+  }
+  &.secondary {
+    color: var(--color-semantic-foreground-bk-03, #989ba2);
+  }
+  &.active {
+    color: var(--color-semantic-foreground-blue-01-strong, #0054d1);
+  }
+  &.disabled {
+    color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.2));
+  }
+  &:visited {
+    color: var(--color-semantic-foreground-blue-01-strong, #0054d1);
+  }
+  // 터치 영역 확장 + 상태 효과
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -4px;
+    right: -4px;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    z-index: 0;
+  }
+  &.state:hover::before {
+    background-color: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+  }
+  &.state:active::before {
+    background-color: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.1));
+  }
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+.icon-button {
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  &.primary {
+    color: var(--color-semantic-foreground-brand-01, #ff7039);
+    &.state:hover::before {
+      background-color: var(--color-semantic-state-brand-02, rgba(255, 112, 57, 0.05));
+    }
+    &.state:active::before {
+      background-color: var(--color-semantic-state-brand-01, rgba(255, 112, 57, 0.1));
+    }
+  }
+  &.secondary {
+    color: var(--color-semantic-foreground-bk-01, #0f0f10);
+  }
+  &.disabled {
+    color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.2));
+  }
+  &.badge {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 2rem;
+      background-color: var(--color-semantic-foreground-negative, #ff4242);
+    }
+  }
+}

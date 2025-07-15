@@ -1,0 +1,107 @@
+@use 'scss/mixin' as *;
+
+.chip {
+  @include text-body1;
+  @include disable-text-drag;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  width: fit-content;
+  border-radius: 999px;
+  background-color: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+  color: var(--color-semantic-foreground-bk-02, #292a2d);
+  text-align: center;
+  font-feature-settings: 'ss10' on;
+  white-space: nowrap;
+  cursor: pointer;
+  button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: background-color 0.2s;
+    border-radius: 999px;
+  }
+  &.disabled {
+    color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.2));
+    border: 1px solid var(--color-semantic-border-transparency-bk-03, rgba(23, 23, 25, 0.05));
+    background-color: transparent;
+    cursor: default;
+    i {
+      color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.2));
+    }
+  }
+  &.leading-icon {
+    gap: 2px;
+  }
+}
+.primary {
+  background: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+  &.active {
+    color: var(--color-semantic-foreground-wt-01, #fff);
+    background: var(--color-semantic-background-brand-01, #ff7039);
+  }
+  &.state {
+    &:hover::before {
+      background: var(--color-semantic-state-brand-02, rgba(255, 112, 57, 0.05));
+    }
+    &:active::before {
+      background: var(--color-semantic-state-brand-01, rgba(255, 112, 57, 0.1));
+    }
+  }
+}
+.secondary {
+  border: 1px solid var(--color-semantic-border-transparency-bk-02, rgba(23, 23, 25, 0.15));
+  background: var(--color-semantic-background-wt-01, #fff);
+  i {
+    color: var(--color-semantic-foreground-bk-03, #989ba2);
+  }
+  &.active {
+    color: var(--color-semantic-foreground-brand-01, #ff7039);
+    border: 1px solid var(--color-semantic-border-solid-brand, #ff7039);
+    background: var(--color-semantic-background-wt-01, #fff);
+    i {
+      color: var(--color-semantic-foreground-brand-01, #ff7039);
+    }
+  }
+  &.state {
+    &:hover::before {
+      background: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+    }
+    &:active::before {
+      background: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.1));
+    }
+  }
+}
+.m {
+  @include text-body1;
+  padding: px-to-rem(8px) px-to-rem(16px);
+  &.trailing-icon {
+    padding-right: px-to-rem(11px);
+  }
+  &.leading-icon {
+    gap: 4px;
+  }
+}
+.s {
+  @include text-body3;
+  padding: px-to-rem(6px) px-to-rem(12px);
+  &.trailing-icon {
+    padding-right: px-to-rem(8px);
+  }
+}
+.xs {
+  @include text-body3;
+  padding: px-to-rem(4px) px-to-rem(8px);
+  &.trailing-icon {
+    padding-right: px-to-rem(6px);
+  }
+}

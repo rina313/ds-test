@@ -1,0 +1,242 @@
+{
+  "Semantic": {
+    "Border": {
+      "Solid": {
+        "bk-01": {
+          "value": "{Atomic.CoolNeutral.5}",
+          "type": "color"
+        },
+        "bk-02": {
+          "value": "{Atomic.CoolNeutral.50}",
+          "type": "color"
+        },
+        "bk-03": {
+          "value": "{Atomic.CoolNeutral.95}",
+          "type": "color"
+        },
+        "bk-04": {
+          "value": "{Atomic.CoolNeutral.98}",
+          "type": "color",
+          "description": "Divider 등 Default로 사용됨"
+        },
+        "Brand": {
+          "value": "{Atomic.Brand.50}",
+          "type": "color",
+          "description": "Selected borders;\nActive borders"
+        },
+        "Positive": {
+          "value": "{Atomic.Blue.50}",
+          "type": "color"
+        },
+        "Negative": {
+          "value": "{Atomic.Red.40}",
+          "type": "color"
+        },
+        "Success": {
+          "value": "{Atomic.Green.50}",
+          "type": "color"
+        },
+        "Warning": {
+          "value": "{Atomic.Yellow.70}",
+          "type": "color"
+        }
+      },
+      "Transparency": {
+        "bk-01": {
+          "value": "{Atomic.Transparency.Black.70}",
+          "type": "color"
+        },
+        "bk-02": {
+          "value": "{Atomic.Transparency.Black.15}",
+          "type": "color"
+        },
+        "bk-03": {
+          "value": "{Atomic.Transparency.Black.5}",
+          "type": "color",
+          "description": "Divider"
+        },
+        "brand-01": {
+          "value": "{Atomic.Transparency.Brand.90}",
+          "type": "color"
+        },
+        "brand-02": {
+          "value": "{Atomic.Transparency.Brand.10}",
+          "type": "color"
+        }
+      }
+    },
+    "Foreground": {
+      "bk-01": {
+        "value": "{Atomic.CoolNeutral.5}",
+        "type": "color",
+        "description": "Primary text;\nDisplay;\nTitle;\nHeading;\nInput labels"
+      },
+      "bk-02": {
+        "value": "{Atomic.CoolNeutral.20}",
+        "type": "color",
+        "description": "Secondary text;\nInput labels"
+      },
+      "bk-03": {
+        "value": "{Atomic.CoolNeutral.70}",
+        "type": "color",
+        "description": "Tertiary text;\nHelp text;\nPlaceholder text"
+      },
+      "bk-04": {
+        "value": "{Atomic.Transparency.Black.20}",
+        "type": "color",
+        "description": "Tertiary text;\nHelp text;\nPlaceholder text"
+      },
+      "wt-01": {
+        "value": "{Atomic.Common.100}",
+        "type": "color",
+        "description": "Tertiary text;\nHelp text;\nPlaceholder text"
+      },
+      "wt-02": {
+        "value": "{Atomic.CoolNeutral.98}",
+        "type": "color",
+        "description": "Tertiary text;\nHelp text;\nPlaceholder text"
+      },
+      "Brand-01": {
+        "value": "{Atomic.Brand.50}",
+        "type": "color"
+      },
+      "Brand-02": {
+        "value": "{Atomic.Brand.60}",
+        "type": "color"
+      },
+      "Brand-03": {
+        "value": "{Atomic.Brand.70}",
+        "type": "color"
+      },
+      "blue-01": {
+        "value": "{Atomic.Blue.50}",
+        "type": "color"
+      },
+      "blue-01-strong": {
+        "value": "{Atomic.Blue.40}",
+        "type": "color"
+      },
+      "Negative": {
+        "value": "{Atomic.Red.50}",
+        "type": "color"
+      },
+      "Success": {
+        "value": "{Atomic.Green.50}",
+        "type": "color"
+      },
+      "Warning": {
+        "value": "{Atomic.Yellow.70}",
+        "type": "color"
+      }
+    },
+    "Background": {
+      "wt-01": {
+        "value": "{Atomic.Common.100}",
+        "type": "color",
+        "description": "Light기준 Default bg"
+      },
+      "wt-02": {
+        "value": "{Atomic.CoolNeutral.99}",
+        "type": "color",
+        "description": "Light기준 강조할 영역에 사용"
+      },
+      "wt-03": {
+        "value": "{Atomic.Transparency.Black.5}",
+        "type": "color"
+      },
+      "wt-04": {
+        "value": "{Atomic.CoolNeutral.95}",
+        "type": "color",
+        "description": "Tertiary text;\nHelp text;\nPlaceholder text"
+      },
+      "bk-01": {
+        "value": "{Atomic.Neutral.20}",
+        "type": "color",
+        "description": "Dark theme 기준 Default"
+      },
+      "bk-02": {
+        "value": "{Atomic.Transparency.Black.40}",
+        "type": "color",
+        "description": "Dimmer 등 배경에 사용"
+      },
+      "bk-03": {
+        "value": "{Atomic.CoolNeutral.98}",
+        "type": "color"
+      },
+      "Brand-01": {
+        "value": "{Atomic.Brand.50}",
+        "type": "color",
+        "description": "Brand Primary color"
+      },
+      "Brand-02": {
+        "value": "{Atomic.Brand.60}",
+        "type": "color"
+      },
+      "Brand-03": {
+        "value": "{Atomic.Brand.95}",
+        "type": "color",
+        "description": "Brand Primary color"
+      },
+      "Positive": {
+        "value": "{Atomic.Blue.95}",
+        "type": "color"
+      },
+      "Negative": {
+        "value": "{Atomic.Red.95}",
+        "type": "color"
+      },
+      "Success": {
+        "value": "{Atomic.Green.95}",
+        "type": "color"
+      },
+      "Warning": {
+        "value": "{Atomic.Yellow.95}",
+        "type": "color"
+      }
+    },
+    "State": {
+      "bk-01": {
+        "value": "{Atomic.Transparency.Black.10}",
+        "type": "color",
+        "description": "Pressed;\nActive;"
+      },
+      "bk-02": {
+        "value": "{Atomic.Transparency.Black.5}",
+        "type": "color",
+        "description": "Hover"
+      },
+      "bk-none": {
+        "value": "{Atomic.Transparency.Black.0}",
+        "type": "color",
+        "description": "Enabled;\nDefault;\nNone;"
+      },
+      "Brand-01": {
+        "value": "{Atomic.Transparency.Brand.10}",
+        "type": "color",
+        "description": "Pressed;\nActive;"
+      },
+      "Brand-02": {
+        "value": "{Atomic.Transparency.Brand.5}",
+        "type": "color",
+        "description": "Hover"
+      },
+      "Brand-none": {
+        "value": "{Atomic.Transparency.Brand.0}",
+        "type": "color",
+        "description": "Enabled;\nDefault;\nNone;"
+      },
+      "wt-01": {
+        "value": "{Atomic.Transparency.White.15}",
+        "type": "color"
+      },
+      "wt-02": {
+        "value": "{Atomic.Transparency.White.10}",
+        "type": "color"
+      },
+      "wt-none": {
+        "value": "{Atomic.Transparency.White.0}",
+        "type": "color"
+      }
+    }
+  }
+}

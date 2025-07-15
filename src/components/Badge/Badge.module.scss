@@ -1,0 +1,63 @@
+@use 'scss/mixin' as *;
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+  @include disable-text-drag;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-feature-settings: 'ss10' on;
+  border-radius: 9999px;
+  color: var(--color-semantic-background-wt-01, #fff);
+  background-color: var(--color-semantic-foreground-negative, #ff4242);
+  /* iOS/Materials/Chrome */
+  backdrop-filter: blur(32px);
+  &.border {
+    border: 2px solid var(--color-semantic-background-wt-01, #fff);
+  }
+}
+
+.number {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  &.s {
+    @include text-caption2;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+  }
+  &.m {
+    @include text-caption1;
+    top: -6px;
+    right: -6px;
+    min-width: 24px;
+    height: 24px;
+  }
+}
+
+.dot {
+  &.s {
+    top: -1px;
+    right: -1px;
+    width: 6px;
+    height: 6px;
+    &.border {
+      border-width: 1px;
+    }
+  }
+  &.m {
+    @include text-caption1;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+  }
+}

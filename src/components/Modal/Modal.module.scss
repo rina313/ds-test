@@ -1,0 +1,141 @@
+@use 'scss/mixin' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 760px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: var(--color-semantic-background-wt-01, #fff);
+  &.scroll-modal {
+    height: calc(100vh - 40px);
+    min-height: 225px;
+  }
+}
+.m {
+  min-width: 280px;
+  max-width: 560px;
+  .header {
+    padding: px-to-rem(18px) px-to-rem(16px) px-to-rem(16px);
+  }
+  .content-wrapper {
+    padding: 0 px-to-rem(16px);
+  }
+  .action-area {
+    padding: px-to-rem(16px);
+  }
+}
+.l {
+  min-width: 480px;
+  max-width: 960px;
+  .header {
+    padding: px-to-rem(22px) px-to-rem(20px) px-to-rem(20px);
+  }
+  .content-wrapper {
+    padding: 0 px-to-rem(20px);
+  }
+  .action-area {
+    padding: px-to-rem(20px);
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  .prev-icon-button {
+    color: var(--color-semantic-foreground-bk-03, #989ba2);
+  }
+  .title {
+    @include text-heading3('bold');
+    flex: 1;
+  }
+  .close-icon-button {
+    margin: 0 0 0 auto;
+    color: var(--color-semantic-foreground-bk-02, #292a2d);
+  }
+}
+.content-wrapper {
+  @include text-body1;
+  flex: 1;
+  width: 100%;
+  min-height: 70px;
+  overflow: auto;
+  white-space: pre-wrap;
+  .content {
+    padding-bottom: 16px;
+  }
+  &.content-scroll .content,
+  &.no-header .content {
+    padding-top: 20px;
+  }
+}
+.action-area {
+  &.action-shadow {
+    box-shadow: 0 -4px 8px -4px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/** modal container */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  animation: modal-fade-in 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1010;
+  animation: modal-pop-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container-modal {
+  margin: 0 20px;
+  width: 100%;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes modal-pop-in {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes modal-pop-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+}

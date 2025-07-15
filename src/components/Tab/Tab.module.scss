@@ -1,0 +1,65 @@
+@use 'scss/mixin' as *;
+
+@mixin tab-size($height, $padding) {
+  height: px-to-rem($height);
+
+  .tab-content {
+    padding: px-to-rem($padding) 0;
+  }
+}
+
+.tab-container {
+  display: flex;
+  overflow-y: auto;
+  max-width: inherit;
+
+  @include hide-scrollbar;
+
+  &.size-s {
+    @include tab-size(40px, 8px);
+    @include text-body1;
+  }
+
+  &.size-m {
+    @include tab-size(56px, 14px);
+    @include text-heading2;
+  }
+
+  &.horizontal {
+    margin: px-to-rem(8px) 0;
+  }
+
+  .tab-wrapper {
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(24px);
+    border-bottom: px-to-rem(1px) solid var(--color-semantic-border-solid-bk-03, #DBDCDF);
+
+    &.vertical {
+      padding: 0 px-to-rem(12px);
+    }
+
+    .tab-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: px-to-rem(4px);
+      position: relative;
+      white-space: nowrap;
+      border-bottom: px-to-rem(2px) solid transparent;
+      color: var(--color-semantic-foreground-bk-03, #989BA2);
+      cursor: pointer;
+      @include state-overlay(8px, bk, calc(100% + 24px), 100%);
+      &::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.selected {
+        border-bottom-color: var(--color-semantic-border-solid-bk-01, #0F0F10);
+        font-weight: 700;
+        color: var(--color-semantic-foreground-bk-01, #0F0F10);
+      }
+    }
+  }
+}

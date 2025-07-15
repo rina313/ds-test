@@ -1,0 +1,464 @@
+{
+  "textStyle": {
+    "Title": {
+      "Display1 | 56px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.72}",
+            "fontSize": "{fontSize.56}",
+            "letterSpacing": "{letterSpacing.-2}"
+          },
+          "type": "typography",
+          "description": "주로 콘텐츠에 사용. 가장 큰 크기로 사용합니다.\n\n키워드 : Display, 1 , 56, 디스플레이"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.72}",
+            "fontSize": "{fontSize.56}",
+            "letterSpacing": "{letterSpacing.-2}"
+          },
+          "type": "typography",
+          "description": "주로 콘텐츠에 사용. 가장 큰 크기로 사용합니다.\n\n키워드 : Display, 1 , 56, 디스플레이"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.72}",
+            "fontSize": "{fontSize.56}",
+            "letterSpacing": "{letterSpacing.-2}"
+          },
+          "type": "typography",
+          "description": "주로 콘텐츠에 사용. 가장 큰 크기로 사용합니다.\n\n키워드 : Display, 1 , 56, 디스플레이"
+        }
+      },
+      "Display2 | 40px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.52}",
+            "fontSize": "{fontSize.40}",
+            "letterSpacing": "{letterSpacing.-1_6}"
+          },
+          "type": "typography",
+          "description": "주로 콘텐츠에 사용. 큰 크기로 사용합니다.\n\n키워드 : Display, 2 , 40, 디스플레이"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.52}",
+            "fontSize": "{fontSize.40}",
+            "letterSpacing": "{letterSpacing.-1_6}"
+          },
+          "type": "typography",
+          "description": "주로 콘텐츠에 사용. 큰 크기로 사용합니다.\n\n키워드 : Display, 2 , 40, 디스플레이"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.52}",
+            "fontSize": "{fontSize.40}",
+            "letterSpacing": "{letterSpacing.-1_6}"
+          },
+          "type": "typography",
+          "description": "주로 콘텐츠에 사용. 큰 크기로 사용합니다.\n\n키워드 : Display, 2 , 40, 디스플레이"
+        }
+      },
+      "Title1 | 28px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.38}",
+            "fontSize": "{fontSize.28}",
+            "letterSpacing": "{letterSpacing.-1_8}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.38}",
+            "fontSize": "{fontSize.28}",
+            "letterSpacing": "{letterSpacing.-1_8}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.38}",
+            "fontSize": "{fontSize.28}",
+            "letterSpacing": "{letterSpacing.-1_8}"
+          },
+          "type": "typography",
+          "description": "텍스트를 주요하게 나타낼 때\b사용합니다. 그 다음 크기로 사용합니다."
+        }
+      },
+      "Title2 | 24px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.32}",
+            "fontSize": "{fontSize.24}",
+            "letterSpacing": "{letterSpacing.-0_24}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.32}",
+            "fontSize": "{fontSize.24}",
+            "letterSpacing": "{letterSpacing.-0_24}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.32}",
+            "fontSize": "{fontSize.24}",
+            "letterSpacing": "{letterSpacing.-0_24}"
+          },
+          "type": "typography"
+        }
+      },
+      "Heading1 | 22px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.30}",
+            "fontSize": "{fontSize.22}",
+            "letterSpacing": "{letterSpacing.-0_2}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.30}",
+            "fontSize": "{fontSize.22}",
+            "letterSpacing": "{letterSpacing.-0_2}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.30}",
+            "fontSize": "{fontSize.22}",
+            "letterSpacing": "{letterSpacing.-0_2}"
+          },
+          "type": "typography"
+        }
+      },
+      "Heading2 | 20px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.28}",
+            "fontSize": "{fontSize.20}",
+            "letterSpacing": "{letterSpacing.-0_16}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.28}",
+            "fontSize": "{fontSize.20}",
+            "letterSpacing": "{letterSpacing.-0_16}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.28}",
+            "fontSize": "{fontSize.20}",
+            "letterSpacing": "{letterSpacing.-0_16}"
+          },
+          "type": "typography"
+        }
+      },
+      "Heading3 | 18px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.26}",
+            "fontSize": "{fontSize.18}",
+            "letterSpacing": "{letterSpacing.-0_1}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.26}",
+            "fontSize": "{fontSize.18}",
+            "letterSpacing": "{letterSpacing.-0_1}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.26}",
+            "fontSize": "{fontSize.18}",
+            "letterSpacing": "{letterSpacing.-0_1}"
+          },
+          "type": "typography"
+        }
+      },
+      "Label1 | 14px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.22}",
+            "fontSize": "{fontSize.14}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.22}",
+            "fontSize": "{fontSize.14}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.22}",
+            "fontSize": "{fontSize.14}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      },
+      "Label2 | 13px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.20}",
+            "fontSize": "{fontSize.13}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.20}",
+            "fontSize": "{fontSize.13}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.20}",
+            "fontSize": "{fontSize.13}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      }
+    },
+    "Body": {
+      "Body1 | 16px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.24}",
+            "fontSize": "{fontSize.16}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.24}",
+            "fontSize": "{fontSize.16}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.24}",
+            "fontSize": "{fontSize.16}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      },
+      "Body2 | 15px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.22}",
+            "fontSize": "{fontSize.15}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.22}",
+            "fontSize": "{fontSize.15}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.22}",
+            "fontSize": "{fontSize.15}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      },
+      "Body3 | 13px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.18}",
+            "fontSize": "{fontSize.13}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.18}",
+            "fontSize": "{fontSize.13}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.18}",
+            "fontSize": "{fontSize.13}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      },
+      "Caption1 | 12px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.16}",
+            "fontSize": "{fontSize.12}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography",
+          "description": "부가적인 내용을 나타낼 때 사용합니다. 일반적으로 사용합니다."
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.16}",
+            "fontSize": "{fontSize.12}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.16}",
+            "fontSize": "{fontSize.12}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      },
+      "Caption2 | 11px": {
+        "Bold": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.bold}",
+            "lineHeight": "{lineHeights.14}",
+            "fontSize": "{fontSize.11}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Medium": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.medium}",
+            "lineHeight": "{lineHeights.14}",
+            "fontSize": "{fontSize.11}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        },
+        "Regular": {
+          "value": {
+            "fontFamily": "{fontFamilies.base}",
+            "fontWeight": "{fontWeights.regular}",
+            "lineHeight": "{lineHeights.14}",
+            "fontSize": "{fontSize.11}",
+            "letterSpacing": "{letterSpacing.0}"
+          },
+          "type": "typography"
+        }
+      }
+    }
+  }
+}

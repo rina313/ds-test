@@ -1,0 +1,96 @@
+@use 'scss/mixin' as *;
+
+.slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+
+  &.disabled {
+
+    .slider-range,
+    .thumb {
+      background: var(--color-semantic-background-wt-04, #DBDCDF);
+      cursor: inherit;
+    }
+
+    .slider-header>.slider-value {
+      color: var(--color-semantic-foreground-bk-03, #989BA2);
+    }
+  }
+
+  &.state .thumb::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s;
+  }
+
+  &.state .thumb {
+    &:hover::before {
+      background-color: var(--color-semantic-state-brand-02, rgba(255, 112, 57, 0.05));
+    }
+
+    &:active::before {
+      background-color: var(--color-semantic-state-brand-01, rgba(255, 112, 57, 0.10));
+    }
+  }
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+  @include text-label2;
+
+  >.slider-value {
+    color: var(--color-semantic-foreground-brand-01, #FF7039);
+  }
+}
+
+.slider-track {
+  position: relative;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+}
+
+.slider-range {
+  position: absolute;
+  top: 0;
+  height: 4px;
+  background-color: var(--color-semantic-foreground-brand-01, #FF7039);
+  border-radius: 4px;
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-semantic-foreground-brand-01, #FF7039);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  color: var(--color-semantic-foreground-wt-01, #FFF);
+  background-color: var(--color-semantic-background-bk-01, #2A2A2A);
+  @include text-caption2;
+  white-space: nowrap;
+}

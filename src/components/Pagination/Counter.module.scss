@@ -1,0 +1,42 @@
+@use 'scss/mixin' as *;
+
+.counter-container {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  border-radius: px-to-rem(99px);
+  backdrop-filter: blur(px-to-rem(32px));
+  background: var(--color-semantic-background-bk-02, rgba(23, 23, 25, 0.40));
+
+  >p {
+    color: var(--color-semantic-foreground-wt-01, #FFF);
+    text-align: center;
+    text-shadow: px-to-rem(0px) px-to-rem(0px) px-to-rem(6px) rgba(0, 0, 0, 0.08);
+
+    @include text-body2;
+    &:first-child {
+      font-weight: 700;
+    }
+  }
+
+  &.size-s {
+    padding: px-to-rem(4px) px-to-rem(8px);
+    gap: px-to-rem(3px);
+
+    >p {
+      font-size: px-to-rem(12px);
+      line-height: px-to-rem(16px);
+    }
+  }
+
+  &.size-m {
+    padding: px-to-rem(5px) px-to-rem(12px);
+    gap: px-to-rem(4px);
+
+    >p {
+      font-size: px-to-rem(15px);
+      line-height: px-to-rem(22px);
+    }
+  }
+}

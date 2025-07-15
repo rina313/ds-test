@@ -1,0 +1,55 @@
+@use 'scss/mixin' as *;
+
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: px-to-rem(4px);
+  flex: 1;
+
+  .textarea-wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    background: var(--color-semantic-background-wt-01, #FFF);
+    transition: border-color 0.2s;
+    border: px-to-rem(1px) solid var(--color-semantic-border-solid-bk-03, #DBDCDF);
+    border-radius: px-to-rem(8px);
+
+    &:focus-within {
+      border-color: var(--color-semantic-border-solid-brand, #FF7039);
+    }
+
+    textarea {
+      position: relative;
+      word-break: break-all;
+      resize: vertical;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      min-height: px-to-rem(48px);
+      padding: px-to-rem(12px);
+      border: none;
+      @include text-body1('regular');
+
+
+      ::placeholder {
+        color: var(--color-semantic-foreground-bk-03, #989BA2);
+      }
+
+      @include custom-scrollbar;
+    }
+
+    &.disabled {
+      background: var(--color-semantic-background-wt-02, #F7F7F8);
+      color: var(--color-semantic-foreground-bk-03, #989BA2);
+    }
+
+    &.negative {
+      border: px-to-rem(1px) solid var(--color-semantic-border-solid-negative, #E52222);
+      background: var(--color-semantic-background-negative, #FEECEC);
+    }
+
+    @include state-overlay-with-class(px-to-rem(8px), bk);
+  }
+}

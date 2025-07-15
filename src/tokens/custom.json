@@ -1,0 +1,16 @@
+{
+  "breakpoint": {
+    "s": {
+      "value": 360,
+      "type": "number"
+    },
+    "m": {
+      "value": 768,
+      "type": "number"
+    },
+    "d": {
+      "value": 1200,
+      "type": "number"
+    }
+  }
+}

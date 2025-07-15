@@ -1,0 +1,127 @@
+@use 'sass:string';
+
+
+@function get-font-weight($weight) {
+  @if $weight == bold {
+    @return var(--font-weights-bold, 700);
+  } @else if $weight == medium {
+    @return var(--font-weights-medium, 500);
+  } @else if $weight == regular {
+    @return var(--font-weights-regular, 400);
+  } @else {
+    @warn "Unknown font weight #{$weight}. Falling back to 400.";
+    @return 400;
+  }
+}
+
+@mixin text-display1($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-72, 72px);
+  font-size: var(--font-size-56, 56px);
+  letter-spacing: var(--letter-spacing--2, -2px);
+}
+
+@mixin text-display2($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-52, 52px);
+  font-size: var(--font-size-40, 40px);
+  letter-spacing: var(--letter-spacing--1_6, -1.6px);
+}
+
+@mixin text-title1($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-38, 38px);
+  font-size: var(--font-size-28, 28px);
+  letter-spacing: var(--letter-spacing--1_8, -1.8px);
+}
+
+@mixin text-title2($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-32, 32px);
+  font-size: var(--font-size-24, 24px);
+  letter-spacing: var(--letter-spacing--0_24, -0.24px);
+}
+
+@mixin text-heading1($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-30, 30px);
+  font-size: var(--font-size-22, 22px);
+  letter-spacing: var(--letter-spacing--0_2, -0.2px);
+}
+
+@mixin text-heading2($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-28, 28px);
+  font-size: var(--font-size-20, 20px);
+  letter-spacing: var(--letter-spacing--0_16, -0.16px);
+}
+
+@mixin text-heading3($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-26, 26px);
+  font-size: var(--font-size-18, 18px);
+  letter-spacing: var(--letter-spacing--0_1, -0.1px);
+}
+
+@mixin text-label1($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-22, 22px);
+  font-size: var(--font-size-14, 14px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}
+
+@mixin text-label2($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-20, 20px);
+  font-size: var(--font-size-13, 13px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}
+
+@mixin text-body1($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-24, 24px);
+  font-size: var(--font-size-16, 16px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}
+
+@mixin text-body2($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-22, 22px);
+  font-size: var(--font-size-15, 15px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}
+
+@mixin text-body3($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-18, 18px);
+  font-size: var(--font-size-13, 13px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}
+
+@mixin text-caption1($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-16, 16px);
+  font-size: var(--font-size-12, 12px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}
+
+@mixin text-caption2($weight: medium) {
+  font-family: var(--font-families-base, Pretendard);
+  font-weight: #{get-font-weight($weight)};
+  line-height: var(--line-heights-14, 14px);
+  font-size: var(--font-size-11, 11px);
+  letter-spacing: var(--letter-spacing-0, 0px);
+}

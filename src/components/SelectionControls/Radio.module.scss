@@ -1,0 +1,99 @@
+@use 'scss/mixin' as *;
+
+.radio-container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: px-to-rem(4px);
+  cursor: pointer;
+
+  >p {
+    @include text-body1('regular');
+  }
+
+  .radio-wrapper {
+    position: relative;
+    padding: px-to-rem(3px);
+
+    .radio-state,
+    .radio-icon-wrapper {
+      width: px-to-rem(18px);
+      height: px-to-rem(18px);
+      border-radius: px-to-rem(99px);
+    }
+
+    .radio-state {
+      position: absolute;
+      transition: background-color 0.2s;
+    }
+
+    .radio-icon-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--color-semantic-border-transperency-bk-02, rgba(23, 23, 25, 0.15));
+      background-color: var(--color-semantic-background-wt-01, #FFF);
+
+      >div {
+        width: px-to-rem(8px);
+        height: px-to-rem(8px);
+        border-radius: px-to-rem(99px);
+        background-color: var(--color-semantic-background-wt-01, #FFF);
+      }
+
+      transition: background-color 0.2s;
+    }
+
+    &.checked>.radio-icon-wrapper {
+      background-color: var(--color-semantic-background-brand-01, #FF7039);
+
+      >div {
+        position: absolute;
+      }
+    }
+  }
+
+  /* Interaction */
+  &:hover {
+    .radio-wrapper>.radio-state {
+      background-color: var(--color-semantic-state-brand-02, rgba(255, 112, 57, 0.05));
+    }
+
+    .radio-wrapper.checked>.radio-state {
+      background-color: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+    }
+  }
+
+  &:active {
+    .radio-wrapper>.radio-state {
+      background-color: var(--color-semantic-state-brand-01, rgba(255, 112, 57, 0.10));
+    }
+
+    .radio-wrapper.checked>.radio-state {
+      background-color: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.10));
+    }
+  }
+
+  /* Disabled */
+  &.disabled {
+    cursor: default;
+
+    >p {
+      color: var(--color-semantic-foreground-bk-03, #989bA2);
+    }
+
+    .radio-wrapper {
+      .radio-icon-wrapper {
+        background-color: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+
+        >div {
+          background-color: transparent;
+        }
+      }
+
+      &.checked>.radio-icon-wrapper>div {
+        background-color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.20));
+      }
+    }
+  }
+}

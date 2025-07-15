@@ -1,0 +1,127 @@
+@use 'scss/mixin' as *;
+
+@mixin icon-size($size) {
+  width: px-to-rem($size);
+  height: px-to-rem($size);
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  gap: px-to-rem(4px);
+
+  i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-semantic-foreground-bk-03, #989BA2);
+  }
+
+  &.size-s {
+    .search-input-wrapper {
+      padding: px-to-rem(4px) px-to-rem(8px);
+      @include text-body3('regular');
+    }
+
+    .icon-button {
+
+      @include icon-size(24px);
+    }
+  }
+
+  &.size-m {
+    .search-input-wrapper {
+      padding: px-to-rem(8px);
+      @include text-body2('regular');
+    }
+
+    .icon-button {
+      @include icon-size(28px);
+    }
+  }
+
+  &.size-l {
+    .search-input-wrapper {
+      gap: px-to-rem(8px);
+      padding: px-to-rem(12px);
+      @include text-body1('regular');
+
+      i {
+        font-size: px-to-rem(16px)
+      }
+    }
+
+    .icon-button {
+      @include icon-size(32px);
+    }
+  }
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: px-to-rem(4px);
+    border-radius: px-to-rem(8px);
+    border: px-to-rem(1px) solid var(--color-semantic-border-solid-bk-03, #DBDCDF);
+    background-color: var(--color-semantic-background-wt-01, #FFF);
+    position: relative;
+    justify-content: space-between;
+    transition: border-color 0.2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: px-to-rem(8px);
+      pointer-events: none;
+      background: var(--color-semantic-state-bk-none, rgba(23, 23, 25, 0.00));
+      transition: background-color 0.2s;
+    }
+
+    &.state {
+      &:hover::after {
+        background: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+      }
+
+      &:active::after {
+        background: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.10));
+      }
+    }
+    &:focus-within {
+      border-color: var(--color-semantic-border-solid-brand, #FF7039);
+    }
+
+    .icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: px-to-rem(24px);
+      height: px-to-rem(24px);
+      padding: px-to-rem(2px);
+      border: none;
+    }
+
+    >input {
+      flex: 1 1 0%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
+
+      ::placeholder {
+        color: var(--color-semantic-foreground-bk-03, #989BA2);
+      }
+    }
+
+    &.disabled {
+      background-color: var(--color-semantic-background-wt-02, #F7F7F8);
+
+      >input {
+        color: var(--color-semantic-foreground-bk-03, #989BA2);
+      }
+    }
+  }
+}

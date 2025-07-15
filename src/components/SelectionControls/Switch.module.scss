@@ -1,0 +1,99 @@
+@use 'scss/mixin' as *;
+
+/* switch size */
+$switch-width-s: px-to-rem(24px);
+$switch-height-s: px-to-rem(16px);
+$switch-handler-s: px-to-rem(12px);
+
+$switch-width-m: px-to-rem(40px);
+$switch-height-m: px-to-rem(24px);
+$switch-handler-m: px-to-rem(18px);
+
+@mixin switch-size($width, $height, $handler, $padding) {
+  width: $width;
+  height: $height;
+  padding: $padding;
+
+  .switch-state {
+    width: $width;
+    height: $height;
+
+  }
+
+  .switch-handle {
+    width: $handler;
+    height: $handler;
+  }
+
+  &.on>.switch-handle {
+    transform: translateX(calc($width - $handler - $padding * 2));
+  }
+}
+
+.switch-container {
+  display: flex;
+  justify-content: space-between;
+  gap: px-to-rem(8px);
+
+  >.switch-label {
+    cursor: pointer;
+  }
+}
+
+.switch-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: px-to-rem(75px);
+  background-color: var(--color-semantic-background-wt-04, #DbDCDF);
+  width: fit-content;
+  cursor: pointer;
+
+  &.size-s {
+    @include switch-size($switch-width-s, $switch-height-s , $switch-handler-s , px-to-rem(2px));
+  }
+
+  &.size-m {
+    @include switch-size($switch-width-m, $switch-height-m , $switch-handler-m , px-to-rem(3px));
+  }
+
+  .switch-state,
+  .switch-handle {
+    position: absolute;
+    border-radius: px-to-rem(75px);
+    transition: background-color 0.2s;
+  }
+
+  .switch-state {
+    left: 0;
+  }
+
+  .switch-handle {
+    background-color: var(--color-semantic-foreground-wt-01, #FFF);
+    transform: translateX(0%);
+    transition: transform 0.3s;
+  }
+
+  &.on {
+    background-color: var(--color-semantic-background-brand-01, #FF7039);
+  }
+
+  /* Interaction */
+  &:hover>.switch-state {
+    background-color: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+  }
+
+  &:active>.switch-state {
+    background-color: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.10));
+  }
+
+  /* Disabled */
+  &.disabled {
+    cursor: default;
+    background-color: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+
+    &.on {
+      background-color: var(--color-semantic-background-brand-03, #FCEbE6);
+    }
+  }
+}

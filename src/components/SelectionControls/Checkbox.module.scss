@@ -1,0 +1,105 @@
+@use 'scss/mixin' as *;
+
+.checkbox-container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: px-to-rem(4px);
+  cursor: pointer;
+
+  >p {
+    @include text-body1('regular');
+  }
+
+  .checkbox-wrapper {
+    position: relative;
+    padding: px-to-rem(3px);
+
+    .checkbox-state,
+    .checkbox-icon-wrapper {
+      width: px-to-rem(18px);
+      height: px-to-rem(18px);
+      border-radius: px-to-rem(4px);
+    }
+
+    .checkbox-state {
+      position: absolute;
+      transition: background-color 0.2s;
+    }
+
+    .checkbox-icon-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: px-to-rem(1px) solid var(--color-semantic-border-transperency-bk-02, rgba(23, 23, 25, 0.15));
+      background-color: var(--color-semantic-background-wt-01, #FFF);
+      transition: background-color 0.2s;
+
+      i {
+        font-size: px-to-rem(12px);
+        color: var(--color-semantic-background-wt-01, #FFF);
+
+        &::before {
+          width: inherit;
+          height: inherit;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+        }
+      }
+    }
+
+    &.checked>.checkbox-icon-wrapper {
+      background-color: var(--color-semantic-background-brand-01, #FF7039);
+
+      i {
+        position: absolute;
+      }
+    }
+  }
+
+  /* Interaction */
+  &:hover {
+    .checkbox-wrapper>.checkbox-state {
+      background-color: var(--color-semantic-state-brand-02, rgba(255, 112, 57, 0.05));
+    }
+
+    .checkbox-wrapper.checked>.checkbox-state {
+      background-color: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+    }
+  }
+
+  &:active {
+    .checkbox-wrapper>.checkbox-state {
+      background-color: var(--color-semantic-state-brand-01, rgba(255, 112, 57, 0.10));
+    }
+
+    .checkbox-wrapper.checked>.checkbox-state {
+      background-color: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.10));
+    }
+  }
+
+  /* Disabled */
+  &.disabled {
+    cursor: default;
+
+    >p {
+      color: var(--color-semantic-foreground-bk-03, #989BA2);
+    }
+
+    .checkbox-wrapper {
+      .checkbox-icon-wrapper {
+        background-color: var(--color-semantic-background-wt-03, rgba(23, 23, 25, 0.05));
+
+        i {
+          color: transparent;
+        }
+      }
+
+      &.checked>.checkbox-icon-wrapper>i {
+        color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.20));
+      }
+    }
+  }
+}

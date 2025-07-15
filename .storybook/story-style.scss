@@ -1,0 +1,19 @@
+.flex-column {
+  display: flex;
+  gap: 30px 53px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  flex-wrap: wrap;
+}
+.flex-row {
+  display: flex;
+  gap: 30px 53px;
+  flex-wrap: wrap;
+}
+.div-row-list {
+  > div {
+    padding: 15px 0;
+  }
+}

@@ -1,0 +1,31 @@
+@use 'scss/mixin' as *;
+
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: px-to-rem(20px);
+}
+
+.empty-state-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: px-to-rem(8px);
+}
+
+.empty-state-title {
+  color: var(--color-semantic-foreground-bk-01, #0F0F10);
+  text-align: center;
+  @include text-heading3;
+}
+
+.empty-state-subtitle {
+  color: var(--color-semantic-foreground-bk-03, #989BA2);
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-word;
+  @include text-body2('regular');
+}

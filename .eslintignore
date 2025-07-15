@@ -1,0 +1,4 @@
+*.mjs
+dist/*
+src/scss/mixin/*
+src/scss/variables/*

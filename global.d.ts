@@ -1,0 +1,14 @@
+declare module '*.module.scss' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.scss' {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
+declare module '*.mdx' {
+  const content: string;
+  export default content;
+}

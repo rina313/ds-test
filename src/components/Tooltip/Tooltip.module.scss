@@ -1,0 +1,206 @@
+@use 'scss/mixin' as *;
+
+:root {
+  --arrow-distance: 6px;
+}
+
+.wrapper {
+  display: inline-block;
+}
+.target {
+  --arrow-margin: 0px;
+  position: relative;
+  display: inline-block;
+}
+.arrow-wrapper {
+  --arrow-margin: 5px;
+}
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 6px;
+  animation: fadeIn 0.15s ease-in-out;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    left: -8px;
+    right: -8px;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    pointer-events: auto;
+    z-index: 0;
+  }
+}
+// ========== variation ==========
+.bk {
+  --tooltip-bg: var(--color-semantic-background-bk-01, #2a2a2a);
+  background: var(--tooltip-bg);
+  color: #fff;
+  svg path {
+    fill: var(--tooltip-bg);
+  }
+}
+.wt {
+  --tooltip-bg: var(--color-semantic-background-wt-01, #fff);
+  border-radius: 6px;
+  background: var(--tooltip-bg);
+  color: #000;
+  svg path {
+    fill: var(--tooltip-bg);
+  }
+  svg {
+    filter: drop-shadow(0px -2px 1px rgba(0, 0, 0, 0.09));
+  }
+  box-shadow:
+    0px 1px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.08),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+}
+// ========== size ==========
+.s {
+  @include text-caption2;
+}
+.m {
+  @include text-body3;
+}
+
+// ========== content ==========
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 8px;
+}
+.label {
+  flex: 1;
+  white-space: pre;
+}
+
+// ========== placement ==========
+
+.up-left,
+.up-center,
+.up-right {
+  bottom: 100%;
+  margin-bottom: var(--arrow-margin, 0px);
+}
+.down-left,
+.down-center,
+.down-right {
+  top: 100%;
+  margin-top: var(--arrow-margin, 0px);
+}
+.left-up,
+.left-center,
+.left-down {
+  right: 100%;
+  margin-right: calc(var(--arrow-margin, 0px) + 3px);
+}
+.right-up,
+.right-center,
+.right-down {
+  left: 100%;
+  margin-left: calc(var(--arrow-margin, 0px) + 3px);
+}
+.up-center,
+.down-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.up-right,
+.down-right {
+  right: 0;
+}
+.left-up,
+.right-up {
+  top: 0;
+}
+.left-center,
+.right-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.left-down,
+.right-down {
+  bottom: 0;
+}
+// ========== arrow ==========
+.arrow {
+  position: absolute;
+}
+.up-left .arrow {
+  top: calc(100% - 3px);
+  left: var(--arrow-distance, 6px);
+  transform: rotate(180deg);
+}
+.up-center .arrow {
+  top: calc(100% - 3px);
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+.up-right .arrow {
+  top: calc(100% - 3px);
+  right: var(--arrow-distance, 6px);
+  transform: rotate(180deg);
+}
+.down-left .arrow {
+  bottom: calc(100% - 3px);
+  left: var(--arrow-distance, 6px);
+}
+.down-center .arrow {
+  bottom: calc(100% - 3px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.down-right .arrow {
+  bottom: calc(100% - 3px);
+  right: var(--arrow-distance, 6px);
+}
+.left-up .arrow {
+  top: var(--arrow-distance, 6px);
+  right: -8px;
+  transform: rotate(90deg);
+}
+.left-center .arrow {
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+}
+.left-down .arrow {
+  right: -8px;
+  bottom: var(--arrow-distance, 6px);
+  transform: rotate(90deg);
+  margin-bottom: var(--arrow-margin, 0px);
+}
+.right-up .arrow {
+  top: var(--arrow-distance, 6px);
+  left: -8px;
+  transform: rotate(-90deg);
+}
+.right-center .arrow {
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
+.right-down .arrow {
+  left: -8px;
+  bottom: var(--arrow-distance, 6px);
+  transform: rotate(-90deg);
+}
+
+// ========== animation ==========
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

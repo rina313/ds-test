@@ -1,0 +1,42 @@
+@use 'scss/mixin' as *;
+@use 'scss/variables' as *;
+
+.label-wrapper {
+  display: flex;
+  align-items: center;
+
+  >p {
+    color: var(--color-semantic-foreground-bk-01, #0F0F10);
+    @include text-label2;
+  }
+
+  .tooltip-wrapper {
+    display: inline-flex;
+    width: px-to-rem(20px);
+    height: px-to-rem(20px);
+    justify-content: center;
+    align-items: center;
+    color: var(--color-semantic-foreground-bk-04, rgba(23, 23, 25, 0.20));
+    font-size: px-to-rem(12px);
+  }
+}
+
+.helper-wrapper {
+  display: flex;
+  width: 100%;
+  gap: px-to-rem(4px);
+  align-items: center;
+  justify-content: space-between;
+
+  >p {
+    color: var(--color-semantic-foreground-bk-03, #989BA2);
+    @include text-caption1('regular');
+  }
+  .maxCount {
+    text-align: end;
+  }
+
+  &.negative>.text {
+    color: var(--color-semantic-foreground-negative, #FF4242);
+  }
+}

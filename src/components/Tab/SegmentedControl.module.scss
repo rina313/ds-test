@@ -1,0 +1,73 @@
+@use 'scss/variables' as *;
+@use 'scss/mixin' as *;
+
+$height-s: px-to-rem(32px);
+$padding-s: px-to-rem(2px);
+$contentPadding-s: px-to-rem(4px) px-to-rem(8px);
+
+$height-m: px-to-rem(44px);
+$padding-m: px-to-rem(4px);
+$contentPadding-m: px-to-rem(6px) px-to-rem(16px);
+
+@mixin segmented-size($height, $padding, $contentPadding, $minWidth) {
+  padding: $padding;
+  height: $height;
+
+  .segmented-content {
+    padding: $contentPadding;
+    min-width: $minWidth;
+  }
+}
+
+.segmented-container {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: px-to-rem(10px);
+  background-color: var(--color-semantic-Background-wt-03, rgba(23, 23, 25, 0.05));
+
+  &.size-s {
+    @include segmented-size($height-s, $padding-s, $contentPadding-s, px-to-rem(84px));
+    .segmented-content {
+      @include text-body3;
+    }
+  }
+
+  &.size-m {
+    @include segmented-size($height-m, $padding-m, $contentPadding-m, px-to-rem(80.5px));
+    .segmented-content {
+      @include text-body1;
+    }
+  }
+
+  &.max-width {
+    height: fit-content;
+    flex-wrap: wrap;
+  }
+  .segmented-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    border-radius: px-to-rem(8px);
+    color: var(--color-semantic-foreground-bk-03, #989BA2);
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    /* Interaction */
+    &:hover {
+      background-color: var(--color-semantic-state-bk-02, rgba(23, 23, 25, 0.05));
+    }
+
+    &:active {
+      background-color: var(--color-semantic-state-bk-01, rgba(23, 23, 25, 0.10));
+    }
+
+    &.selected {
+      background-color: #fff;
+      color: var(--color-semantic-foreground-bk-01, #0F0F10);
+      box-shadow: $shadow-s;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@use 'scss/mixin' as *;
+
+@mixin icon-size($size) {
+  width: px-to-rem($size);
+  height: px-to-rem($size);
+}
+
+.text-field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: px-to-rem(4px);
+
+  .text-field-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 1 0;
+
+    &.isTrailingBtn>.text-field-wrapper {
+      &,
+      &:hover::before,
+      &:active::before {
+        border-radius: px-to-rem(8px) px-to-rem(0px) px-to-rem(0px) px-to-rem(8px);
+      }
+    }
+
+    button {
+      border-left: none;
+      height: inherit;
+
+      &,
+      &:hover::before,
+      &:active::before {
+        border-radius: px-to-rem(0px) px-to-rem(8px) px-to-rem(8px) px-to-rem(0px);
+      }
+    }
+
+    &.size-s {
+      height: px-to-rem(32px);
+
+      .text-field-wrapper {
+        padding: px-to-rem(4px) px-to-rem(8px);
+        @include text-body3('regular');
+
+        i {
+          @include icon-size(16px);
+        }
+      }
+    }
+
+    &.size-m {
+      height: px-to-rem(40px);
+
+      .text-field-wrapper {
+        padding: px-to-rem(8px);
+        @include text-body2('regular');
+
+        i {
+          @include icon-size(20px);
+        }
+      }
+    }
+
+    &.size-l {
+      height: px-to-rem(48px);
+
+      .text-field-wrapper {
+        padding: px-to-rem(12px);
+        @include text-body1('regular');
+
+        i {
+          @include icon-size(24px);
+        }
+      }
+    }
+  }
+
+  .text-field-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: px-to-rem(8px);
+    border-radius: px-to-rem(8px);
+    border: px-to-rem(1px) solid var(--color-semantic-border-solid-bk-03, #DBDCDF);
+    background-color: var(--color-semantic-background-wt-01, #FFF);
+    position: relative;
+    justify-content: space-between;
+
+
+
+    &:focus-within {
+      border-color: var(--color-semantic-border-solid-brand, #FF7039);
+    }
+
+    transition: border-color 0.2s;
+
+    .label-icon {
+      flex: 0 0 auto;
+      gap: px-to-rem(10px);
+      color: var(--color-semantic-foreground-bk-03, #989BA2);
+    }
+
+    .label-content {
+      flex: 0 0 auto;
+      color: var(--color-semantic-foreground-bk-02, #292A2D);
+      @include text-body2;
+    }
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-semantic-foreground-bk-03, #989BA2);
+    }
+
+    >input {
+      flex: 1 1 0%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: relative;
+      border: none;
+      padding: 0;
+      @include text-body2('regular');
+
+      ::placeholder {
+        color: var(--color-semantic-foreground-bk-03, #989BA2);
+      }
+
+      &:focus,
+      &:focus-within,
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+    }
+
+    &.disabled {
+      background-color: var(--color-semantic-background-wt-02, #F7F7F8);
+
+      >input {
+        color: var(--color-semantic-foreground-bk-03, #989BA2);
+      }
+    }
+
+    &.negative {
+      border-color: var(--color-semantic-border-solid-negative, #E52222);
+      background-color: var(--color-semantic-background-negative, #FEECEC);
+    }
+
+    @include state-overlay-with-class(px-to-rem(8px), bk);
+  }
+}
