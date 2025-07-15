@@ -1,5 +1,5 @@
 {
-  "name": "@ch/design-system",
+  "name": "@rina313/design-system",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -20,7 +20,8 @@
     "chromatic": "npx chromatic --project-token=chpt_421ca18acbfafa2"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/",
+    "access": "restricted"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
