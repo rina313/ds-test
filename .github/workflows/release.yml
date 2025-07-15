@@ -39,10 +39,9 @@ jobs:
       - name: Create .npmrc dynamically
         run: |
           echo "@rina313:registry=https://npm.pkg.github.com/" > .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.NODE_AUTH_TOKEN }}" >> .npmrc
 
       - name: Publish
         run: npm publish --access=restricted
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
   
