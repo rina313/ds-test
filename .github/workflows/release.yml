@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
-          scope: '@ch'
+          scope: '@rina313'
 
       - name: Install Dependencies
         run: pnpm install
@@ -33,7 +33,7 @@ jobs:
 
       - name: Create .npmrc dynamically
         run: |
-          echo "@ch:registry=https://npm.pkg.github.com/" > .npmrc
+          echo "@rina313:registry=https://npm.pkg.github.com/" > .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
       - name: Publish
